@@ -17,12 +17,12 @@ public class InventoryImplementation implements InventoryService {
 
     @Override
     public Inventory searchInventory(int id) {
-        return inventoryRepository.findById(id).get();
+        return inventoryRepository.findByProductId(id);
     }
 
     @Override
     public Inventory updateInventory(int id, Inventory inventory) {
-        Inventory exisitingInventory = inventoryRepository.findById(id).get();
+        Inventory exisitingInventory = inventoryRepository.findByProductId(id);
         exisitingInventory.setQuantity(inventory.getQuantity());
         exisitingInventory.setProductId(inventory.getProductId());
         return inventoryRepository.save(inventory);

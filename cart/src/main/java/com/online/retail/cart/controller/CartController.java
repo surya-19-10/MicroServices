@@ -27,6 +27,10 @@ public class CartController {
     public ResponseEntity<Cart> getCart(@PathVariable int id) {
         return new ResponseEntity<>(cartService.getCart(id), HttpStatus.OK);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<Cart> updateCart(@PathVariable int id, @RequestBody Cart cart) {
+        return new ResponseEntity(cartService.updateCart(id, cart), HttpStatus.OK);
+    }
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCart(@PathVariable int id) {
         return new ResponseEntity<>(cartService.deleteCart(id), HttpStatus.OK);
