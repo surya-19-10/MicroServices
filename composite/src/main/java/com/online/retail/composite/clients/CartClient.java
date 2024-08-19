@@ -5,14 +5,14 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "cart", url = "http://localhost:8083/cart")
+@FeignClient(name = "cart")
 public interface CartClient {
-    @PostMapping("/")
+    @PostMapping("/cart/")
     ResponseEntity<Cart> saveCart(Cart cart);
-    @GetMapping("/{id}")
+    @GetMapping("/cart/{id}")
     ResponseEntity<Cart> getCart(@PathVariable int id);
-    @PutMapping("/{id}")
+    @PutMapping("/cart/{id}")
     ResponseEntity<Cart> updateCart(@PathVariable int id, @RequestBody Cart cart);
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/cart/{id}")
     ResponseEntity<String> deleteCart(@PathVariable int id);
 }

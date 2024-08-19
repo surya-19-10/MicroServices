@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "customer", url = "http://localhost:8080/customer")
+@FeignClient(name = "customer")
 public interface CustomerClient {
-    @PostMapping("/add")
+    @PostMapping("/customer/add")
     ResponseEntity<Customer> addCustomer(@RequestBody Customer customer);
-    @GetMapping("/search/{id}")
+    @GetMapping("/customer/search/{id}")
     ResponseEntity<Customer> getCustomer(@PathVariable int id);
 }

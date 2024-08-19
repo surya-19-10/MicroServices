@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "order", url="http://localhost:8084/order")
+@FeignClient(name = "order")
 public interface OrderClient {
-    @PostMapping("/")
+    @PostMapping("/order/")
     ResponseEntity<Order> addOrder(@RequestBody Order order);
-    @GetMapping("/{id}")
+    @GetMapping("/order/{id}")
     ResponseEntity<Order> getOrder(@PathVariable int id);
 }

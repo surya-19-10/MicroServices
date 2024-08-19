@@ -5,12 +5,12 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name="inventory", url = "http://localhost:8082/inventory")
+@FeignClient(name="inventory")
 public interface InventoryClient {
-    @PostMapping("/")
+    @PostMapping("/inventory/")
     ResponseEntity<Inventory> addInventory(Inventory inventory);
-    @GetMapping("/{id}")
+    @GetMapping("/inventory/{id}")
     ResponseEntity<Inventory> searchInventory(@PathVariable int id);
-    @PutMapping("/{id}")
+    @PutMapping("/inventory/{id}")
     ResponseEntity<Inventory> updateInventory(@PathVariable int id, @RequestBody Inventory inventory);
 }

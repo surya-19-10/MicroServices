@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(name = "products", url = "http://localhost:8081/products")
+@FeignClient(name = "products")
 public interface ProductClient {
-    @PostMapping("/")
+    @PostMapping("/products/")
     ResponseEntity<Product> addProduct(Product product);
-    @GetMapping("/{id}")
+    @GetMapping("/products/{id}")
     ResponseEntity<Product> searchProduct(@PathVariable int id);
 }
